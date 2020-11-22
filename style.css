@@ -4,6 +4,34 @@
     border:0;
 }
 
+body{
+    text-align:center;
+}
+
 #score{
     display:inline;
 }
+
+#moles{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width:640px;
+    height:480px;
+    margin:auto;
+}
+
+#moles div{
+    width:100%;
+    border:solid 1px black;
+    height:calc(480px / 3 );
+}
+
+
+#moles div img{
+    width:100%;
+    height:calc(480px / 3 );
+    cursor:pointer;
+}
+
+
