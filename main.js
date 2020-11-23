@@ -1,4 +1,5 @@
-()=>(){
+(()=>{
+
     class Game{
 
         difficulty = 400;
@@ -7,17 +8,36 @@
         last = null
         progress = 0;
         score = 0;
+        start = false;
+        gameStart = null;
     
     
         constructor(){
             
-            //sets the click to hit function
-            $("#moles div").each( (hole, test)=>{
-    
-                //hide all moles
-                $(test).children().first().hide()
+            //create start button
+            $("#start").click( (e)=>{
+                if(this.start){
+                    this.start = false; 
+                    this.score = 0;
+                    this.gameStart = Date.now();
+                }else{
+                    this.start = true ; 
+                    this.score = 0;
+                    this.gameStart = Date.now();
+                }
                 
-                $(test).click((e)=>{
+            })
+
+            //sets the click to hit function
+            $("#moles div img").each( (hole, mole)=>{
+                
+                //prevent dragging on all images
+                $(mole).attr('draggable', false);
+
+                //hide all moles
+                $(mole).hide()
+                
+                $(mole).click((e)=>{
                     if(e.target.nodeName != "DIV"){
                         
                         $(e.target).fadeOut()
@@ -36,35 +56,40 @@
             this.main()
         }
     
-        main(va){
-    
+        main(){
             
-           
-            this.timestamp = Date.now()
-    
-            this.progress += (this.timestamp - this.last)
-            if(this.progress >= this.difficulty){
-    
-                 console.log(this.progress)
-    
-                 var random = Math.floor(Math.random() * 8)
-    
-                 console.log()
-    
-                 $($("#moles div img").get(random)).fadeIn()
-                 
-                 this.progress = 0
-    
+            if(this.timestamp - this.gameStart >= 20000 && this.start){
+                alert("Game over! " + "Score: " + this.score);
+                this.start = false;
             }
-            
-            this.last = this.timestamp
-            
+
+            if(this.start){
+                this.timestamp = Date.now()
+    
+                this.progress += (this.timestamp - this.last)
+                if(this.progress >= this.difficulty){
+        
+                    var random = Math.floor(Math.random() * 8)
+        
+                    console.log()
+        
+                    $($("#moles div img").get(random)).fadeIn()
+                    
+                    this.progress = 0
+        
+                }
+                
+                this.last = this.timestamp
+                
+                
+            }
             //arrow function allows it to be called again
             requestAnimationFrame(()=>this.main())
         }
-    
+
     }
     
     var game = new Game()
-}
+})();
+
 
