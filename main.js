@@ -38,7 +38,7 @@
                 $(mole).hide()
                 
                 $(mole).click((e)=>{
-                    if(e.target.nodeName != "DIV"){
+                    if(e.target.nodeName != "DIV" && this.start){
                         
                         $(e.target).fadeOut()
                         this.score++
