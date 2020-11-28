@@ -10,6 +10,7 @@
         score = 0;
         start = false;
         gameStart = null;
+        clicked = []
     
     
         constructor(){
@@ -34,18 +35,24 @@
                 //prevent dragging on all images
                 $(mole).attr('draggable', false);
 
+                this.clicked[hole] = false;
+                console.log(this.clicked)
+
                 //hide all moles
                 $(mole).hide()
                 
                 $(mole).click((e)=>{
-                    if(e.target.nodeName != "DIV" && this.start){
+                    if(e.target.nodeName != "DIV" && this.start && this.clicked[hole] == false){
                         
                         $(e.target).fadeOut()
                         this.score++
                         $("#score").text(this.score)
+                        this.clicked[hole] = true;
                     }
                     
                 })
+
+
     
             })
     
@@ -74,6 +81,7 @@
                     console.log()
         
                     $($("#moles div img").get(random)).fadeIn()
+                    this.clicked[random] = false;
                     
                     this.progress = 0
         
