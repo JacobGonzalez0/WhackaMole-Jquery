@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body{
+    background: rgb(41, 62, 63)
+}
+
+#container{
+    margin: 2vh 0;
+    background: url(../img/bedge_grunge.png);
+    border: 5px solid ;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-left:0px;
+    border-right:0px;
+    border-image-source: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(176,176,176,1) 2%, rgba(205,205,205,1) 98%, rgba(0,0,0,1) 100%);
+    text-align: center;
+    padding:1em 0;
+}
+
+.text{
+    padding:3em;
+}
+
+.text h1{
+    padding:1em;
+}
+
+#score{
+    display:inline;
+}
+
+#moles{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width:640px;
+    height:480px;
+    margin:auto;
+    background: white;
+}
+
+#moles div{
+    width:100%;
+    background: white;
+    border:solid 1px black;
+    height:calc(480px / 3 );
+}
+
+
+#moles div img{
+    width:100%;
+    height:calc(480px / 3 );
+    cursor:pointer;
+}
+
+
+#start{
+    margin:2em;
+    border:1px solid black;
+    border-radius: 7px;
+    padding:.6em 2em;
+    font-size:1.2em; 
+}
+
