@@ -13,7 +13,7 @@ body{
 }
 
 #container{
-    margin: 2vh 0;
+    margin: 2em 0;
     background: url(../img/bedge_grunge.png);
     border: 5px solid ;
     border-image-slice: 1;
@@ -59,6 +59,34 @@ body{
     width:100%;
     height:calc(480px / 3 );
     cursor:pointer;
+}
+
+
+
+@media only screen and (max-width: 640px){
+    #moles{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        width:360px;
+        height:240px;
+        margin:auto;
+        background: white;
+    }
+    
+    #moles div{
+        width:100%;
+        background: white;
+        border:solid 1px black;
+        height:calc(240px / 3 );
+    }
+    
+    
+    #moles div img{
+        width:100%;
+        height:calc(240px / 3 );
+        cursor:pointer;
+    }
 }
 
 
